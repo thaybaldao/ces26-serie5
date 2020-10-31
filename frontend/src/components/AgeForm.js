@@ -8,7 +8,7 @@ const number = (value) => {
   if (!validator.isNumeric(value)) {
     return (
       <div className="alert alert-danger" role="alert" style={{marginTop: "5px"}}>
-        {`${value} não é uma sequência de números.`}
+        {`${value} must be a number.`}
       </div>
     );
 
@@ -50,7 +50,7 @@ class AgeForm extends Component {
   mySubmitHandler = async e => {
     this.form.validateAll();
     e.preventDefault();
-    if(this.state.name !== "" && Number(this.state.age) && this.state.age > 18){
+    if(this.state.name !== "" && Number(this.state.age) && this.state.age >= 18){
       $.ajax({
         url: "http://localhost:5000/submit",
         type: 'POST',
